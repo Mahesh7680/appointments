@@ -1,0 +1,31 @@
+.appointment-container {
+  min-height: 100px;
+  min-width: 200px;
+  max-width: 250px;
+  border: 2px solid blue;
+  padding: 10px;
+  margin: 20px;
+  border-radius: 5px;
+  list-style: none;
+  background-color: transparent;
+}
+
+.person-first-letter {
+  background-color: #b91c1c;
+  text-align: center;
+  padding: 5px;
+  border-radius: 45%;
+}
+.like-button {
+  height: 20px;
+}
+.delete-button {
+  height: 20px;
+}
+
+.like-delete-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+}

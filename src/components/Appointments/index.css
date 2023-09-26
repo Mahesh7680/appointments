@@ -1,0 +1,44 @@
+body {
+  padding: 15px;
+  list-style: none;
+}
+
+.user-inputs-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+}
+
+.main-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+img {
+  height: 200px;
+}
+.list-of-appointments-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+}
+.list-of-appointments-container button {
+  border: 0;
+  background-color: none;
+}
+
+.button-styling {
+  border-radius: 10px;
+  border: 1px solid black;
+  background-color: transparent;
+}
+h1 {
+  font-size: 20px;
+}
+.bottom-appointment-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
