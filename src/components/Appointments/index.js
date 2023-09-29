@@ -26,11 +26,7 @@ class Appointments extends Component {
   }
 
   onAddDate = event => {
-    const [year, month, day] = event.target.value.split('-')
-    const formattedObject = `${year},${month * 1},${day * 1}`
-    this.setState({dateTime: formattedObject})
-    console.log(formattedObject)
-    console.log(format(new Date(formattedObject), 'dd MMMM yyyy, EEEE')) // 19 July 2021, Monday
+    this.setState({dateTime: event.target.value})
   }
 
   onAppointmentCreate = event => {
@@ -44,6 +40,8 @@ class Appointments extends Component {
     }
     this.setState(prevState => ({
       initialFakeData: [...prevState.initialFakeData, dataToUpdate],
+      title: '',
+      dateTime: 'mm/dd/yyyy',
     }))
   }
 
@@ -62,9 +60,17 @@ class Appointments extends Component {
     this.setState(prevState => ({isStarred: !prevState.isStarred}))
   }
 
+  formatThisDate = () => {
+    const {dateTime} = this.state
+    const [year, month, day] = dateTime.split('-')
+    const formattedObject = `${year},${month * 1},${day * 1}`
+
+    return format(new Date(formattedObject), 'dd MMMM yyyy, EEEE')
+  }
+
   render() {
     const {initialFakeData, title, dateTime, isStarred} = this.state
-    console.log(isStarred)
+    console.log(dateTime)
     return (
       <>
         <form className="main-container" onSubmit={this.onAppointmentCreate}>
@@ -79,14 +85,12 @@ class Appointments extends Component {
               onChange={this.onAddTitle}
               //   required
             />
-            <label htmlFor="dateEl" alt="date">
-              Date
-            </label>
+            <label htmlFor="dateEl">Date</label>
             <input
               type="date"
               alt="date"
               id="dateEl"
-              //   value={dateTime}
+              value={dateTime}
               onChange={this.onAddDate}
               //   required
             />
@@ -126,6 +130,7 @@ class Appointments extends Component {
               <AppointmentItem
                 eachItem={eachItem}
                 key={eachItem.id}
+                // dateTimeObj={formatThisDate()}
                 onClickStar={this.onClickStar}
               />
             ),
